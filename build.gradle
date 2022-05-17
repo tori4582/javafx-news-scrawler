@@ -35,8 +35,11 @@ javafx {
 
 dependencies {
     compileOnly('org.projectlombok:lombok:1.18.24')
-    implementation('org.jsoup:jsoup:1.14.3')
     annotationProcessor('org.projectlombok:lombok:1.18.24')
+
+    implementation('org.jsoup:jsoup:1.14.3')
+
+    implementation('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
     testCompileOnly('org.projectlombok:lombok:1.18.24')
     testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
     implementation('org.controlsfx:controlsfx:11.1.1')
@@ -55,6 +58,8 @@ dependencies {
         exclude(group: 'org.openjfx')
     }
 
+    testCompileOnly('org.projectlombok:lombok:1.18.24')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
