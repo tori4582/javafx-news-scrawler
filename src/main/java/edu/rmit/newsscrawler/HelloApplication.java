@@ -10,7 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.extern.java.Log;
 import org.w3c.dom.Document;
 
 import java.io.IOException;
@@ -22,41 +24,12 @@ import static edu.rmit.newsscrawler.common.NewsProviderUtils.fetchRssDocument;
 import static edu.rmit.newsscrawler.common.RssReferences.getRssMap;
 import static edu.rmit.newsscrawler.common.XmlMapperUtils.toNodeStream;
 
+@Log
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-
-        stage.setOnShowing(event -> {
-            HelloController controller = fxmlLoader.getController();
-            ListView<AnchorPane> t = controller.getTopicList();
-
-            var result = crawlDocumentAsChrome("https://vnexpress.net/");
-
-            var articleLinks = result.select("article.item-news")
-                    .stream()
-                    .map(e -> parseArticleLink("VNEXPRESS", e))
-                    .collect(Collectors.toList());
-
-            try {
-                var loader = new FXMLLoader(HelloApplication.class.getResource("ArticleLinkComponent.fxml"));
-                ArticleLinkComponent c = (ArticleLinkComponent) loader.getController();
-
-                AnchorPane p = new AnchorPane((AnchorPane) loader.load());
-
-                AnchorPane p1 = new AnchorPane((AnchorPane) loader.load());
-                c.setArticleLink(articleLinks.get(1));
-                t.getItems().add(p);
-
-                c.setArticleLink(articleLinks.get(2));
-                t.getItems().add(p1);
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        });
 
         stage.setTitle("Hello!");
         stage.setScene(scene);

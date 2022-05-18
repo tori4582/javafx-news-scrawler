@@ -19,7 +19,7 @@ public class XmlMapperUtils {
         return Article.builder()
                 .title(removeCData(getChildNode(itemNode, "title").getTextContent()))
                 .url(removeCData(getChildNode(itemNode, "link").getTextContent()))
-                .publishedAt(toLocalDate(removeCData(getChildNode(itemNode, "pubDate").getTextContent())))
+//                .publishedAt(toLocalDate(removeCData(getChildNode(itemNode, "pubDate").getTextContent())))
                 .imageUrl(removeCData(getChildNode(itemNode, "image").getTextContent()))
                 .build();
     }

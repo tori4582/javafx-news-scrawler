@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="164.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.rmit.newsscrawler.client.ArticleLinkComponent">
+<Pane prefHeight="164.0" prefWidth="772.0" scaleShape="false" style="-fx-border-color: #000; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.rmit.newsscrawler.client.ArticleLinkComponent">
    <children>
-      <ImageView fx:id="thumbnail" fitHeight="164.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="thumbnail" fitHeight="164.0" fitWidth="199.0" pickOnBounds="true">
          <effect>
             <InnerShadow />
          </effect>
       </ImageView>
-      <Hyperlink fx:id="articleLink" layoutX="217.0" layoutY="28.0" prefHeight="45.0" prefWidth="538.0" text="Hyperlink">
+      <Hyperlink fx:id="articleHyperLink" alignment="TOP_LEFT" layoutX="217.0" layoutY="12.0" onAction="#onLinkClicked" prefHeight="54.0" prefWidth="538.0" text="Hyperlink">
          <font>
             <Font name="Segoe UI Semilight" size="24.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="description" layoutX="217.0" layoutY="90.0" prefHeight="56.0" prefWidth="538.0" text="Label" wrapText="true" />
+      <Label fx:id="description" alignment="TOP_LEFT" layoutX="225.0" layoutY="66.0" prefHeight="54.0" prefWidth="530.0" text="Label" wrapText="true" />
    </children>
-</AnchorPane>
+</Pane>

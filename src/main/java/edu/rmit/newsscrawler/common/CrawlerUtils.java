@@ -12,7 +12,10 @@ public class CrawlerUtils {
 
     @SneakyThrows
     public static final Element crawlDocumentAsChrome(String url) {
-        return Jsoup.connect(url).userAgent("Chrome").get().body();
+        return Jsoup.connect(url)
+                .userAgent("Chrome")
+                .timeout(10000)
+                .get();
     }
 
 

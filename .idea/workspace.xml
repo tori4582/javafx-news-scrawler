@@ -5,14 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/c/0c07220583a7f44084373b01e3aff3f3ed707ff5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/f/0f74123c43df007602c912eb5903991b1f013806" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2af74cd0701f20b8f29998b75f2bfd3d46bafb9b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/6/664afd2c2f855a2bd158a1c5782f8065f5c38b6d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7cfc89f9232acd1e236a41c03dca7de3354bb0a8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5d394403993e014a12c9fce967b3ffd7b77172c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/2/e2dd2a0e6ce11fb3cf3c992df2a67e5dd9eaa664" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3631ac8122e2ec002dd4c81f43ddc08e506a52d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9600596b23e2b1a4e2aa64c00142d84e29db838" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9600596b23e2b1a4e2aa64c00142d84e29db838" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/client/ArticleLinkComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/client/ArticleLinkComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/CrawlerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/CrawlerUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/RssReferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/RssReferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/XmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/XmlMapperUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Article.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/NewsProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/VnExpressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/VnExpressRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/ArticleLinkComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/ArticleLinkComponent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/Main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +53,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -66,6 +83,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.rmit.newsscrawler.repository" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\prj\NewsScrawler\src\main\resources\edu\rmit\newsscrawler" />
     </key>
@@ -212,6 +232,11 @@
       <workItem from="1652625941586" duration="134000" />
       <workItem from="1652732150353" duration="10904000" />
       <workItem from="1652752129838" duration="10645000" />
+      <workItem from="1652806942151" duration="1296000" />
+      <workItem from="1652841033539" duration="18219000" />
+      <workItem from="1652869123266" duration="6079000" />
+      <workItem from="1652889630908" duration="2189000" />
+      <workItem from="1652891841909" duration="9493000" />
     </task>
     <servers />
   </component>
