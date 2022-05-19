@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="527.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.rmit.newsscrawler.HelloController">
    <children>
-      <Pane prefHeight="86.0" prefWidth="790.0">
+      <Pane prefHeight="75.0" prefWidth="883.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
          <children>
             <ComboBox fx:id="comboProvider" layoutX="15.0" layoutY="37.0" onAction="#onProviderSelection" prefWidth="150.0" />
             <Label layoutX="14.0" layoutY="14.0" text="News Provider" />
@@ -13,6 +13,6 @@
             <ComboBox fx:id="comboCategory" layoutX="224.0" layoutY="37.0" onAction="#onCategorySelection" prefWidth="150.0" />
          </children>
       </Pane>
-      <ListView fx:id="chem" layoutX="3.0" layoutY="75.0" prefHeight="447.0" prefWidth="883.0" />
+      <ListView fx:id="chem" layoutX="3.0" layoutY="75.0" prefHeight="447.0" prefWidth="883.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="4.0" />
    </children>
 </AnchorPane>

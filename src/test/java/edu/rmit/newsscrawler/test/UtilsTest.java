@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.stream.Collectors;
 
 import static edu.rmit.newsscrawler.common.HtmlMapperUtils.parseArticleLink;
+import static edu.rmit.newsscrawler.common.NewsProviderUtils.fetchRssDocument;
 import static edu.rmit.newsscrawler.common.XmlMapperUtils.parseArticle;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,24 +17,16 @@ public class UtilsTest {
     @Test
     public void test() {
 
-        var result = CrawlerUtils.crawlDocumentAsChrome("https://vnexpress.net/");
-        log.info(result.select("article.item-news").select("h3.title-news a").first().attr("href"));
+        String url = "https://tuoitre.vn/rss/the-gioi.rss";
 
-        log.info(
-                Integer.toString(
-                        result.select("article.item-news").stream()
-                                .map(e -> parseArticleLink(e))
-                                .collect(Collectors.toList())
-                                .size()
-                )
-        );
+        var l = fetchRssDocument(url).getElementsByTagName("item");
 
+        for (int i = 0; i < l.getLength(); i++) {
+            var item = l.item(i);
+            var link = item.getChildNodes().item(1);
+            log.severe(link.getNodeName() + ": " + link.getTextContent());
+        }
 
-//        var item = d.
-//
-//        var obj = XmlMapperUtils.parseArticle(item);
-//
-//        log.info(obj.getUrl());
 
         assertEquals(true, true);
     }

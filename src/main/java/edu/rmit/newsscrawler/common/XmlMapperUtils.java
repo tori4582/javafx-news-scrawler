@@ -56,4 +56,10 @@ public class XmlMapperUtils {
         return toNodeArrayList(nodeList).stream();
     }
 
+    public static final List<Node> selectByTag(NodeList nodeList, String tagName) {
+        return toNodeArrayList(nodeList).stream()
+                .filter(node -> node.getNodeName().equals(tagName))
+                .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+    }
+
 }

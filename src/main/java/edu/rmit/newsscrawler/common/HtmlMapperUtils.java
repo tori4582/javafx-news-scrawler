@@ -2,6 +2,7 @@ package edu.rmit.newsscrawler.common;
 
 import edu.rmit.newsscrawler.models.Article;
 import edu.rmit.newsscrawler.models.ArticleLink;
+import lombok.extern.java.Log;
 import org.jsoup.nodes.Element;
 
 import java.util.HashMap;
@@ -10,13 +11,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Log
 public class HtmlMapperUtils {
 
     public static final ArticleLink parseArticleLink(String newsProvider, Element articleElement) {
-
-        if (!articleElement.nodeName().equals("article")) {
-            throw new IllegalArgumentException("Passed element is not an <article> element");
-        }
 
         switch (newsProvider) {
             case "VNEXPRESS":
@@ -52,18 +50,35 @@ public class HtmlMapperUtils {
         }
     }
 
-    private static final ArticleLink parseNhanDanArticleLink(Element articleElement) { return null;
+    private static final ArticleLink parseNhanDanArticleLink(Element articleElement) {
+        var link =  parseQuerier(
+                articleElement,
+                "div.box-title>a",
+                "div.box-desc>p",
+                "div.box-img>a>img"
+        );
+
+        if (link != null) {
+            link.setThumbnailUrl(articleElement.select("div.box-img img").attr("data-src"));
+            link.setProvider("NHANDAN");
+        }
+
+        return link;
     }
 
     private static final ArticleLink parseTuoiTreArticleLink(Element articleElement) {
         var link =  parseQuerier(
                 articleElement,
-                "h3>a",
+                "h3 a",
                 "p.sapo",
                 "li.news-item a img"
         );
 
         if (link != null) {
+
+            log.info(articleElement.select("li.news-item a img").html());
+
+            link.setThumbnailUrl(articleElement.select("li.news-item a img").attr("src"));
             link.setProvider("TUOITRE");
         }
 
@@ -164,10 +179,22 @@ public class HtmlMapperUtils {
 
 
     private static final Article parseNhanDanArticle(Element bodyElement) {
-        return null;
+        return Article.builder()
+                .title(bodyElement.select("h1").text())
+                .publishedAt(bodyElement.select("div.box-date").text())
+                .author(bodyElement.select("div.box-author").text())
+                .htmlContent(forceLoadLazyData(bodyElement.select("div.box-content-detail").first()))
+                .categories(
+                        bodyElement.select("p.the-article-category a")
+                                .stream()
+                                .map(e -> e.text())
+                                .collect(Collectors.toList())
+                )
+                .build();
     }
 
     private static final Article parseTuoiTreArticle(Element bodyElement) {
+
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("div.date-time").text())
@@ -180,6 +207,7 @@ public class HtmlMapperUtils {
                                 .collect(Collectors.toList())
                 )
                 .build();
+
     }
 
     private static final Article parseZingArticle(Element bodyElement) {

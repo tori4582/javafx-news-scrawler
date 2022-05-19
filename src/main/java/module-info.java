@@ -15,7 +15,6 @@ module edu.rmit.newsscrawler {
     requires org.jsoup;
     requires java.desktop;
 
-
     opens edu.rmit.newsscrawler to javafx.fxml;
     exports edu.rmit.newsscrawler;
     exports edu.rmit.newsscrawler.client;

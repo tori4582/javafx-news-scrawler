@@ -36,6 +36,9 @@ public class ArticleLinkComponent {
     @FXML
     private Label description;
 
+    @FXML
+    private Label labelMetadata;
+
     public void setArticleLink(ArticleLink articleLink) throws IOException {
 
         if (articleLink == null) {
@@ -44,6 +47,7 @@ public class ArticleLinkComponent {
 
         this.articleHyperLink.setText(articleLink.getTitle());
         this.description.setText(articleLink.getDescription());
+        this.labelMetadata.setText(articleLink.getProvider());
         try {
             this.thumbnail.setImage(new Image(articleLink.getThumbnailUrl(), true));
         } catch (IllegalArgumentException | NullPointerException e) {
@@ -63,7 +67,6 @@ public class ArticleLinkComponent {
 
         if (!articleLink.getUrl().startsWith("http")) {
             var provider = ProviderRepository.getInstance().getProvider(articleLink.getProvider());
-
             var seperator = (provider.get().getUrl().endsWith("/")) ? "" : "/" ;
 
             articleLink.setUrl(provider.get().getUrl() + seperator + articleLink.getUrl());

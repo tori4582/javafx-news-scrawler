@@ -19,5 +19,10 @@
          </font>
       </Hyperlink>
       <Label fx:id="description" alignment="TOP_LEFT" layoutX="225.0" layoutY="66.0" prefHeight="54.0" prefWidth="530.0" text="Label" wrapText="true" />
+      <Label fx:id="labelMetadata" alignment="BOTTOM_RIGHT" layoutX="558.0" layoutY="133.0" prefHeight="17.0" prefWidth="199.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

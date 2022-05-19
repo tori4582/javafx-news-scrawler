@@ -38,6 +38,8 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok:1.18.24')
 
     implementation('org.jsoup:jsoup:1.14.3')
+    implementation('com.rometools:rome:1.18.0')
+//    implementation('rome:rome:1.0')
 
     implementation('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
     testCompileOnly('org.projectlombok:lombok:1.18.24')
