@@ -12,4 +12,5 @@ public class ArticleLink {
     private String description;
     private String provider;
     private String thumbnailUrl;
+    private String publishDateTime;
 }

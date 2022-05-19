@@ -55,7 +55,8 @@ public class HtmlMapperUtils {
                 articleElement,
                 "div.box-title>a",
                 "div.box-desc>p",
-                "div.box-img>a>img"
+                "div.box-img>a>img",
+                "div.box-meta-small"
         );
 
         if (link != null) {
@@ -71,7 +72,8 @@ public class HtmlMapperUtils {
                 articleElement,
                 "h3 a",
                 "p.sapo",
-                "li.news-item a img"
+                "li.news-item a img",
+                ""
         );
 
         if (link != null) {
@@ -91,7 +93,8 @@ public class HtmlMapperUtils {
                 articleElement,
                 ".article-title a",
                 "p.article-summary",
-                ".article-thumbnail img"
+                ".article-thumbnail img",
+                "p.article-meta span.friendly-time"
         );
 
         if (link != null) {
@@ -106,7 +109,8 @@ public class HtmlMapperUtils {
                 articleElement,
                 "h2 a",
                 "div.summary p",
-                "article>a>img"
+                "article>a>img",
+                "div.meta>span.time"
         );
 
         if (link != null) {
@@ -122,10 +126,12 @@ public class HtmlMapperUtils {
                 articleElement,
                 ".title-news a",
                 "p.description a",
-                "article>a>img"
+                "article>a>img",
+                ""
         );
 
         if (link != null) {
+            link.setThumbnailUrl(articleElement.select("article>a>img").attr("data-src"));
             link.setProvider("VNEXPRESS");
         }
 
@@ -149,7 +155,7 @@ public class HtmlMapperUtils {
         return map;
     }
 
-    public static final ArticleLink parseQuerier(Element articleElement, String titleQuery, String descQuery, String thumbnailQuery) {
+    public static final ArticleLink parseQuerier(Element articleElement, String titleQuery, String descQuery, String thumbnailQuery, String timeQuery) {
 
         Element titleElement = articleElement.select(titleQuery).first();
 
@@ -162,6 +168,7 @@ public class HtmlMapperUtils {
         articleLink.setTitle(titleElement.text());
         articleLink.setUrl(titleElement.attr("href"));
         articleLink.setDescription(articleElement.select(descQuery).text());
+        articleLink.setPublishDateTime(articleElement.select(timeQuery).text());
 
         var thumbnail = articleElement.select(thumbnailQuery).first();
 
@@ -199,7 +206,7 @@ public class HtmlMapperUtils {
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("div.date-time").text())
                 .author(bodyElement.select("div.author").text())
-                .htmlContent(forceLoadLazyData(bodyElement.select("div.content.fck").first()))
+                .htmlContent(bodyElement.select("div.content.fck").first().html())
                 .categories(
                         bodyElement.select("p.the-article-category a")
                                 .stream()

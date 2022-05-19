@@ -31,6 +31,9 @@ public class ArticleLinkComponent {
     private Hyperlink articleHyperLink;
 
     @FXML
+    private Label publishDateTime;
+
+    @FXML
     private ImageView thumbnail;
 
     @FXML
@@ -48,6 +51,7 @@ public class ArticleLinkComponent {
         this.articleHyperLink.setText(articleLink.getTitle());
         this.description.setText(articleLink.getDescription());
         this.labelMetadata.setText(articleLink.getProvider());
+        this.publishDateTime.setText(articleLink.getPublishDateTime());
         try {
             this.thumbnail.setImage(new Image(articleLink.getThumbnailUrl(), true));
         } catch (IllegalArgumentException | NullPointerException e) {
@@ -59,6 +63,7 @@ public class ArticleLinkComponent {
 
     @FXML
     public void onLinkClicked(Event e) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("NewsReader.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         NewsReaderController controller = fxmlLoader.getController();
@@ -77,6 +82,7 @@ public class ArticleLinkComponent {
         log.info("FETCH->HTML: " + articleLink.getUrl() + " : " + result.select("title").text());
 
         Article article = parseArticle(articleLink.getProvider(), result);
+        article.setPublishedAt(articleLink.getPublishDateTime());
 
         controller.load(articleLink, article);
 

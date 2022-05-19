@@ -24,5 +24,10 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
+      <Label fx:id="publishDateTime" layoutX="225.0" layoutY="133.0" text="Label" textFill="#949494">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
