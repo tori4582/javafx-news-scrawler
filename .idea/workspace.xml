@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/NewsCrawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/c/0c07220583a7f44084373b01e3aff3f3ed707ff5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1ed99fe7b13f982fd03445e340f4220979ab27a9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2be12f499de9f7bcc3486648668d30de725811e7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2f5a5e9151bbb133aaa15faf7d8382727b70f284" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/6/664afd2c2f855a2bd158a1c5782f8065f5c38b6d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a152a483a5cb161f0337f7adf78ccc3c88f90809" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/9/b9d3bacd945d4828401d45396b3fdc4e379f1dfc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9600596b23e2b1a4e2aa64c00142d84e29db838" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ece35c264aa3cab7e61059bacabd83b71ce3f65b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/client/ArticleLinkComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/ArticleLinkComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/client/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/client/NewsReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/NewsReaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/NewsProviderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/NewsProviderUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/RssReferences.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/RssRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ThanhNienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ThanhNienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/ArticleLinkComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/ArticleLinkComponent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/NewsReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/rmit/newsscrawler/NewsReader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/rmit/newsscrawler/test/UtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/rmit/newsscrawler/test/UtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,11 +179,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.NewsCrawler" />
       <item itemvalue="Gradle.NewsScrawler [clean build]" />
       <item itemvalue="Gradle.NewsScrawler [buildDependents]" />
       <item itemvalue="Gradle.UtilsTest.test (1)" />
       <item itemvalue="Gradle.NewsScrawler [run]" />
-      <item itemvalue="Application.NewsCrawler" />
     </list>
     <recent_temporary>
       <list>
@@ -240,7 +216,7 @@
       <workItem from="1652942619160" duration="17205000" />
       <workItem from="1652966760228" duration="187000" />
       <workItem from="1652966971823" duration="2059000" />
-      <workItem from="1652969479229" duration="11861000" />
+      <workItem from="1652969479229" duration="11975000" />
     </task>
     <servers />
   </component>

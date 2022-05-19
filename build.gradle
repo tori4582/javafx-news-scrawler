@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'edu.rmit.newsscrawler'
-    mainClass = 'edu.rmit.newsscrawler.HelloApplication'
+    mainClass = 'edu.rmit.newsscrawler.NewsCrawler'
 }
 
 javafx {
