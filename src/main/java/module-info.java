@@ -14,9 +14,10 @@ module edu.rmit.newsscrawler {
     requires java.logging;
     requires org.jsoup;
     requires java.desktop;
+    requires java.se;
 
     opens edu.rmit.newsscrawler to javafx.fxml;
     exports edu.rmit.newsscrawler;
-    exports edu.rmit.newsscrawler.client;
-    opens edu.rmit.newsscrawler.client to javafx.fxml;
+    exports edu.rmit.newsscrawler.controller;
+    opens edu.rmit.newsscrawler.controller to javafx.fxml;
 }

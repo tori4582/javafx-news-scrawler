@@ -1,11 +1,14 @@
-package edu.rmit.newsscrawler.client;
+package edu.rmit.newsscrawler.controller;
 
 import edu.rmit.newsscrawler.models.Article;
 import edu.rmit.newsscrawler.models.ArticleLink;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
+
+import java.awt.*;
 
 public class NewsReaderController {
 
@@ -28,12 +31,14 @@ public class NewsReaderController {
     private Label title;
 
     public void load(ArticleLink articleLink, Article article) {
+
         url.setText(articleLink.getUrl());
         title.setText(article.getTitle());
         htmlContent.getEngine().loadContent(article.getHtmlContent());
         author.setText(article.getAuthor());
         category.setText(article.getCategoriesString());
         publishedDateTime.setText(article.getPublishedAt());
+
     }
 
 

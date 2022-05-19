@@ -1,10 +1,9 @@
-package edu.rmit.newsscrawler.client;
+package edu.rmit.newsscrawler.controller;
 
-import edu.rmit.newsscrawler.HelloApplication;
+import edu.rmit.newsscrawler.NewsCrawler;
 import edu.rmit.newsscrawler.models.ArticleLink;
 import edu.rmit.newsscrawler.repository.ProviderRepository;
 import edu.rmit.newsscrawler.repository.Repository;
-import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
@@ -27,9 +26,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static edu.rmit.newsscrawler.common.CrawlerUtils.getResponseAsChrome;
-import static edu.rmit.newsscrawler.common.HtmlMapperUtils.parseArticleLink;
-import static edu.rmit.newsscrawler.common.NewsProviderUtils.fetchRssDocument;
-import static edu.rmit.newsscrawler.common.XmlMapperUtils.*;
+import static edu.rmit.newsscrawler.common.NewsProviderUtils.parseArticleLink;
+import static edu.rmit.newsscrawler.common.RssHandler.getRssArticleLinkHandler;
 
 @Data
 @Log
@@ -83,6 +81,8 @@ public class MainController implements Initializable {
         comboCategory.getItems().clear();
         comboCategory.getItems().addAll(repository.getCategoryNames());
 
+        ((ToggleButton) this.paginationPane.getChildren().get(0)).setSelected(true);
+
         doneProgress();
     }
 
@@ -94,6 +94,7 @@ public class MainController implements Initializable {
         String providerName = ((String) comboProvider.getValue()).toUpperCase();
         Repository repository = providerRepository.getProvider(providerName);
         String url = repository.getCategoryUrl((String) comboCategory.getValue());
+
         Integer page = Integer.parseInt(
                 ((ToggleButton) this.paginationPane
                     .getChildren()
@@ -105,28 +106,33 @@ public class MainController implements Initializable {
 
         this.chem.getItems().clear();
 
-        if (providerName.equals("TUOITRE") || providerName.equals("VNEXPRESS")) {
-
-            openProgress("Handling RSS documents");
-
-            this.rssHandler(providerName, url, page);
-
-            doneProgress();
-            return;
-        }
+        List<Pane> panes;
 
         log.info("FETCH: " + providerName + " - " + comboCategory.getValue() + " @ " + url);
 
-        var articleLinksPanes = this.renderArticleLinks(
-                providerName,
-                url,
-                "article",
-                (page - 1) * 10, page * 10,
-                getDefaultHtmlArticleLinkMapper(providerName),
-                getDefaultPaneMapper()
-        );
+        if (List.of("TUOITRE", "VNEXPRESS", "THANHNIEN").contains(providerName)) {
+            openProgress("Handling RSS documents");
+            panes = this.renderArticleLinks(
+                    providerName,
+                    url,
+                    "item",
+                    (page - 1) * 10, (page * 10),
+                    getRssArticleLinkHandler(providerName),
+                    getDefaultPaneMapper()
+            );
+            doneProgress();
+        } else {
+            panes = this.renderArticleLinks(
+                    providerName,
+                    url,
+                    "article",
+                    (page - 1) * 10, page * 10,
+                    getDefaultHtmlArticleLinkMapper(providerName),
+                    getDefaultPaneMapper()
+            );
+        }
 
-        this.chem.getItems().addAll(articleLinksPanes);
+        this.chem.getItems().addAll(panes);
         doneProgress();
 
     }
@@ -137,6 +143,8 @@ public class MainController implements Initializable {
                                           int fromIndex, int toIndex,
                                           Function<? super Element, ArticleLink> articleLinkMapper,
                                           Function<ArticleLink, Pane> paneMapper) {
+
+        log.info(url);
 
         var result = Jsoup.parse(getResponseAsChrome(url).body());
 
@@ -158,7 +166,7 @@ public class MainController implements Initializable {
         return (
             articleLink -> {
 
-                var loader = new FXMLLoader(HelloApplication.class.getResource("ArticleLinkComponent.fxml"));
+                var loader = new FXMLLoader(NewsCrawler.class.getResource("ArticleLinkComponent.fxml"));
 
                 try {
                     Pane p = new Pane((Pane) loader.load());
@@ -172,46 +180,6 @@ public class MainController implements Initializable {
                 }
             }
         );
-    }
-
-    private void rssHandler(String providerName, String url, int pageNumber) {
-        var items = toNodeArrayList(fetchRssDocument(url).getElementsByTagName("item"));
-
-        var articleLinksPanes = this.renderArticleLinks(
-                providerName,
-                url,
-                "item",
-                (pageNumber - 1) * 10, (pageNumber * 10),
-                (
-                        item -> {
-                            ArticleLink articleLink = new ArticleLink();
-
-                            var e = (Element) item;
-
-                            articleLink.setTitle(removeCData(e.getElementsByTag("title").first().text()));
-
-                            var descriptionTag = removeCData(e.select("description").first().text());
-
-                            var element = Jsoup.parse(descriptionTag);
-
-                            articleLink.setThumbnailUrl(removeCData(element.select("img").attr("src")));
-                            articleLink.setDescription(removeCData(element.text()));
-                            articleLink.setUrl(
-                                    (providerName.equals("TUOITRE"))
-                                        ? element.select("a").first().attr("href")
-                                        : removeCData(e.select("guid").first().text())
-                            );
-                            articleLink.setPublishDateTime(removeCData(e.getElementsByTag("pubdate").first().text()));
-                            articleLink.setProvider(providerName);
-
-                            return articleLink;
-                    }
-                ),
-                getDefaultPaneMapper()
-        );
-
-        this.chem.getItems().addAll(articleLinksPanes);
-
     }
 
     public void onPageSwitched(Event e, int index) {

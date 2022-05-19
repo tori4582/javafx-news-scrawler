@@ -1,6 +1,6 @@
-package edu.rmit.newsscrawler.client;
+package edu.rmit.newsscrawler.controller;
 
-import edu.rmit.newsscrawler.HelloApplication;
+import edu.rmit.newsscrawler.NewsCrawler;
 import edu.rmit.newsscrawler.models.Article;
 import edu.rmit.newsscrawler.models.ArticleLink;
 import edu.rmit.newsscrawler.repository.ProviderRepository;
@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,10 +17,11 @@ import javafx.stage.Stage;
 import lombok.Data;
 import lombok.extern.java.Log;
 
+import java.awt.*;
 import java.io.IOException;
 
 import static edu.rmit.newsscrawler.common.CrawlerUtils.crawlDocumentAsChrome;
-import static edu.rmit.newsscrawler.common.HtmlMapperUtils.parseArticle;
+import static edu.rmit.newsscrawler.common.NewsProviderUtils.parseArticle;
 
 @Data
 @Log
@@ -64,7 +66,7 @@ public class ArticleLinkComponent {
     @FXML
     public void onLinkClicked(Event e) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("NewsReader.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(NewsCrawler.class.getResource("NewsReader.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         NewsReaderController controller = fxmlLoader.getController();
 
@@ -88,5 +90,19 @@ public class ArticleLinkComponent {
 
         stage.setScene(scene);
         stage.show();
+
+        if (article.getHtmlContent() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error information");
+            a.setHeaderText("This page contains no content");
+            a.setContentText("This problem may be occurred when the loaded page is not a " +
+                    "readable content or not in valid format of a post.\nPlease try another page.");
+            a.setOnShowing(event -> {
+                Toolkit.getDefaultToolkit().beep();
+                a.getDialogPane().requestFocus();
+            });
+            a.show();
+
+        }
     }
 }

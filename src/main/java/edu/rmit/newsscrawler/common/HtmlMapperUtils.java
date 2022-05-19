@@ -3,6 +3,7 @@ package edu.rmit.newsscrawler.common;
 import edu.rmit.newsscrawler.models.Article;
 import edu.rmit.newsscrawler.models.ArticleLink;
 import lombok.extern.java.Log;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.util.HashMap;
@@ -14,43 +15,7 @@ import java.util.stream.Collectors;
 @Log
 public class HtmlMapperUtils {
 
-    public static final ArticleLink parseArticleLink(String newsProvider, Element articleElement) {
-
-        switch (newsProvider) {
-            case "VNEXPRESS":
-                return parseVnExpressArticleLink(articleElement);
-            case "THANHNIEN":
-                return parseThanhNienArticleLink(articleElement);
-            case "ZING":
-                return parseZingArticleLink(articleElement);
-            case "TUOITRE":
-                return parseTuoiTreArticleLink(articleElement);
-            case "NHANDAN":
-                return parseNhanDanArticleLink(articleElement);
-            default:
-                throw new IllegalArgumentException("Unknown news provider: " + newsProvider);
-        }
-    }
-
-    public static final Article parseArticle(String newsProvider, Element bodyElement) {
-
-        switch (newsProvider) {
-            case "VNEXPRESS":
-                return parseVnExpressArticle(bodyElement);
-            case "THANHNIEN":
-                return parseThanhNienArticle(bodyElement);
-            case "ZING":
-                return parseZingArticle(bodyElement);
-            case "TUOITRE":
-                return parseTuoiTreArticle(bodyElement);
-            case "NHANDAN":
-                return parseNhanDanArticle(bodyElement);
-            default:
-                throw new IllegalArgumentException("Unknown news provider: " + newsProvider);
-        }
-    }
-
-    private static final ArticleLink parseNhanDanArticleLink(Element articleElement) {
+    public static final ArticleLink parseNhanDanArticleLink(Element articleElement) {
         var link =  parseQuerier(
                 articleElement,
                 "div.box-title>a",
@@ -67,7 +32,7 @@ public class HtmlMapperUtils {
         return link;
     }
 
-    private static final ArticleLink parseTuoiTreArticleLink(Element articleElement) {
+    public static final ArticleLink parseTuoiTreArticleLink(Element articleElement) {
         var link =  parseQuerier(
                 articleElement,
                 "h3 a",
@@ -87,7 +52,7 @@ public class HtmlMapperUtils {
         return link;
     }
 
-    private static final ArticleLink parseZingArticleLink(Element articleElement) {
+    public static final ArticleLink parseZingArticleLink(Element articleElement) {
 
         var link =  parseQuerier(
                 articleElement,
@@ -104,7 +69,7 @@ public class HtmlMapperUtils {
         return link;
     }
 
-    private static final ArticleLink parseThanhNienArticleLink(Element articleElement) {
+    public static final ArticleLink parseThanhNienArticleLink(Element articleElement) {
         ArticleLink link = parseQuerier(
                 articleElement,
                 "h2 a",
@@ -120,7 +85,7 @@ public class HtmlMapperUtils {
         return link;
     }
 
-    private static final ArticleLink parseVnExpressArticleLink(Element articleElement) {
+    public static final ArticleLink parseVnExpressArticleLink(Element articleElement) {
 
         ArticleLink link = parseQuerier(
                 articleElement,
@@ -185,14 +150,19 @@ public class HtmlMapperUtils {
 
 
 
-    private static final Article parseNhanDanArticle(Element bodyElement) {
+    public static final Article parseNhanDanArticle(Element bodyElement) {
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("div.box-date").text())
                 .author(bodyElement.select("div.box-author").text())
-                .htmlContent(forceLoadLazyData(bodyElement.select("div.box-content-detail").first()))
-                .categories(
-                        bodyElement.select("p.the-article-category a")
+                .htmlContent(
+                        eliminateHyperlinks(
+                                forceLoadLazyData(
+                                        bodyElement.select("div.box-content-detail").first()
+                                )
+                        )
+                ).categories(
+                        bodyElement.select("li.bc-item>a")
                                 .stream()
                                 .map(e -> e.text())
                                 .collect(Collectors.toList())
@@ -200,15 +170,20 @@ public class HtmlMapperUtils {
                 .build();
     }
 
-    private static final Article parseTuoiTreArticle(Element bodyElement) {
+    public static final Article parseTuoiTreArticle(Element bodyElement) {
 
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("div.date-time").text())
                 .author(bodyElement.select("div.author").text())
-                .htmlContent(bodyElement.select("div.content.fck").first().html())
-                .categories(
-                        bodyElement.select("p.the-article-category a")
+                .htmlContent(
+                        eliminateHyperlinks(
+                                forceLoadLazyData(
+                                        bodyElement.select("div#main-content-detail").first()
+                                )
+                        )
+                ).categories(
+                        bodyElement.select("ul>li.fl>a")
                                 .stream()
                                 .map(e -> e.text())
                                 .collect(Collectors.toList())
@@ -217,15 +192,20 @@ public class HtmlMapperUtils {
 
     }
 
-    private static final Article parseZingArticle(Element bodyElement) {
+    public static final Article parseZingArticle(Element bodyElement) {
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(
                         bodyElement.select("li.the-article-publish").text()
                                 + " (" + bodyElement.select("li.the-article-friendly-time").text() + ")"
                 ).author(bodyElement.select("li.the-article-author").text())
-                .htmlContent(forceLoadLazyData(bodyElement.select("section.main").first()))
-                .categories(
+                .htmlContent(
+                        eliminateHyperlinks(
+                                forceLoadLazyData(
+                                        bodyElement.select("div.the-article-body").first()
+                                )
+                        )
+                ).categories(
                         bodyElement.select("p.the-article-category a")
                                 .stream()
                                 .map(e -> e.text())
@@ -234,13 +214,18 @@ public class HtmlMapperUtils {
                 .build();
     }
 
-    private static final Article parseThanhNienArticle(Element bodyElement) {
+    public static final Article parseThanhNienArticle(Element bodyElement) {
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("div.meta time").text())
                 .author(bodyElement.select("h4>a.cms-author").text())
-                .htmlContent(forceLoadLazyData(bodyElement.select("div#abody").first()))
-                .categories(
+                .htmlContent(
+                        eliminateHyperlinks(
+                                forceLoadLazyData(
+                                        bodyElement.select("div#abody").first()
+                                )
+                        )
+                ).categories(
                         bodyElement.select("div.breadcrumb>a")
                                 .stream()
                                 .map(e -> e.text())
@@ -249,14 +234,19 @@ public class HtmlMapperUtils {
                 .build();
     }
 
-    private static final Article parseVnExpressArticle(Element bodyElement) {
+    public static final Article parseVnExpressArticle(Element bodyElement) {
 
         return Article.builder()
                 .title(bodyElement.select("h1").text())
                 .publishedAt(bodyElement.select("span.date").text())
                 .author(bodyElement.select("p.normal strong").text())
-                .htmlContent(forceLoadLazyData(bodyElement.select("article.fck_detail").first()))
-                .categories(
+                .htmlContent(
+                        eliminateHyperlinks(
+                                forceLoadLazyData(
+                                        bodyElement.select("article.fck_detail").first()
+                                )
+                        )
+                ).categories(
                         bodyElement.select("ul.breadcrumb li a")
                                 .stream()
                                 .map(e -> e.text())
@@ -265,7 +255,22 @@ public class HtmlMapperUtils {
                 .build();
     }
 
+    public static final String eliminateHyperlinks(String html) {
+
+        if (html == null) {
+            return null;
+        }
+
+        var htmlElement = Jsoup.parse(html);
+        htmlElement.select("a").remove();
+        return htmlElement.html();
+    }
+
     private static final String forceLoadLazyData(Element element) {
+
+        if (element == null) {
+            return null;
+        }
 
         List<String> rawImages = element.select("img")
                 .stream()

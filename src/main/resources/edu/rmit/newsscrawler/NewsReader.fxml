@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane prefHeight="809.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.rmit.newsscrawler.client.NewsReaderController">
+<AnchorPane prefHeight="809.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.rmit.newsscrawler.controller.NewsReaderController">
    <children>
       <Label fx:id="title" alignment="TOP_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="84.0" prefWidth="581.0" text="Label" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0">
          <font>
@@ -25,6 +25,6 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="publishedDateTime" alignment="CENTER_RIGHT" layoutX="332.0" layoutY="157.0" prefHeight="17.0" prefWidth="254.0" text="Label" />
+      <Label fx:id="publishedDateTime" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="157.0" prefHeight="17.0" prefWidth="347.0" text="Label" />
    </children>
 </AnchorPane>

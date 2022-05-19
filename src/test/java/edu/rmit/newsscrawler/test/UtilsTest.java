@@ -1,14 +1,11 @@
 package edu.rmit.newsscrawler.test;
 
-import edu.rmit.newsscrawler.common.*;
+import edu.rmit.newsscrawler.common.DateTimeUtils;
 import lombok.extern.java.Log;
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Collectors;
+import java.time.LocalDateTime;
 
-import static edu.rmit.newsscrawler.common.HtmlMapperUtils.parseArticleLink;
-import static edu.rmit.newsscrawler.common.NewsProviderUtils.fetchRssDocument;
-import static edu.rmit.newsscrawler.common.XmlMapperUtils.parseArticle;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Log
@@ -17,23 +14,10 @@ public class UtilsTest {
     @Test
     public void test() {
 
-        String url = "https://tuoitre.vn/rss/the-gioi.rss";
+        var d = DateTimeUtils.getPublishedDuration(LocalDateTime.parse("2022-04-01T00:00:00"));
 
-        var l = fetchRssDocument(url).getElementsByTagName("item");
-
-        for (int i = 0; i < l.getLength(); i++) {
-            var item = l.item(i);
-            var link = item.getChildNodes().item(1);
-            log.severe(link.getNodeName() + ": " + link.getTextContent());
-        }
-
+        log.info(d);
 
         assertEquals(true, true);
     }
-
-    @Test
-    public void mapperTest() {
-        RssReferences.getRssMap().values().stream().forEach(System.out::println);
-    }
-
 }
