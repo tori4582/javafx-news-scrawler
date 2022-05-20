@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/FXUIUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/PaginationUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/NewsReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/NewsReaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/NewsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/models/NewsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/NhanDanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/NhanDanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ThanhNienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ThanhNienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/TuoiTreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/TuoiTreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/VnExpressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/VnExpressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ZingNewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/repository/ZingNewsRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

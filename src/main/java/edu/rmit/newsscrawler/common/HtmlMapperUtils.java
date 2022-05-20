@@ -148,7 +148,7 @@ public class HtmlMapperUtils {
     public static final Article parseNhanDanArticle(Element bodyElement) {
         return Article.builder()
                 .title(bodyElement.select("h1").text())
-                .publishedAt(bodyElement.select("div.box-date").text())
+                .publishedAt(bodyElement.select("div.box-date.pull-left").text())
                 .author(bodyElement.select("div.box-author").text())
                 .htmlContent(
                         eliminateHyperlinks(
@@ -174,11 +174,11 @@ public class HtmlMapperUtils {
                 .htmlContent(
                         eliminateHyperlinks(
                                 forceLoadLazyData(
-                                        bodyElement.select("div#main-content-detail").first()
+                                        bodyElement.select("div.content.fck").first()
                                 )
                         )
                 ).categories(
-                        bodyElement.select("ul>li.fl>a")
+                        bodyElement.select("ul>li.fl::firstchild>a")
                                 .stream()
                                 .map(e -> e.text())
                                 .collect(Collectors.toList())
