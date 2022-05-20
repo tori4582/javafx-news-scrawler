@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/e/0ecfb255297b012079edff0ae1ea00f2515e6624" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f288cd73881440b22762cc09912557f6cc84b6d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/common/HtmlMapperUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/rmit/newsscrawler/controller/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +56,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="edu.rmit.newsscrawler.repository" />
@@ -218,6 +227,7 @@
       <workItem from="1652966760228" duration="187000" />
       <workItem from="1652966971823" duration="2059000" />
       <workItem from="1652969479229" duration="11975000" />
+      <workItem from="1653020490904" duration="1101000" />
     </task>
     <servers />
   </component>

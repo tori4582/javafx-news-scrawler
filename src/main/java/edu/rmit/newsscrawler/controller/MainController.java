@@ -35,6 +35,7 @@ public class MainController implements Initializable {
 
     private ProviderRepository providerRepository = ProviderRepository.getInstance();
     private ToggleGroup tg = new ToggleGroup();
+    List<ToggleButton> pageButtons = new ArrayList<>();
 
     @FXML
     private ListView<Pane> chem;
@@ -98,8 +99,7 @@ public class MainController implements Initializable {
         String url = repository.getCategoryUrl((String) comboCategory.getValue());
 
         Integer page = Integer.parseInt(
-                ((ToggleButton) this.paginationPane
-                    .getChildren()
+                ((ToggleButton) this.pageButtons
                     .stream()
                     .filter(b -> ((ToggleButton) b).isSelected())
                     .collect(Collectors.toList())
@@ -198,8 +198,6 @@ public class MainController implements Initializable {
 
         comboProvider.getItems().addAll(providers);
 
-        List<ToggleButton> pageButtons = new ArrayList<>();
-
         for (int i = 1; i < 6; i++) {
             var b = new ToggleButton(Integer.toString(i));
             b.setToggleGroup(tg);
@@ -208,12 +206,15 @@ public class MainController implements Initializable {
             b.setMinHeight(b.getPrefHeight());
             b.setMinWidth(b.getPrefWidth());
             b.setOnAction((e) -> {
+                pageButtons.stream().forEach(btn -> btn.setDisable(false));
                 this.onPageSwitched(e, Integer.parseInt(b.getText()));
+                b.setDisable(true);
             });
             pageButtons.add(b);
         }
 
         pageButtons.get(0).setSelected(true);
+        pageButtons.get(0).setDisable(true);
 
         this.paginationPane.getChildren().addAll(pageButtons);
 

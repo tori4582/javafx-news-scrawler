@@ -121,7 +121,7 @@ public class HtmlMapperUtils {
 
         Element titleElement = articleElement.select(titleQuery).first();
 
-        if (titleElement == null) {
+        if (titleElement == null || titleElement.text().equals("")) {
             return null;
         }
 
@@ -178,10 +178,7 @@ public class HtmlMapperUtils {
                                 )
                         )
                 ).categories(
-                        bodyElement.select("ul>li.fl::firstchild>a")
-                                .stream()
-                                .map(e -> e.text())
-                                .collect(Collectors.toList())
+                        List.of(bodyElement.select("ul>li.fl>a").first().text())
                 )
                 .build();
 
