@@ -118,7 +118,7 @@ public class MainController implements Initializable {
                     providerName,
                     url,
                     "item",
-                    (page - 1) * 10, (page * 10),
+                    page,
                     getRssArticleLinkHandler(providerName),
                     getDefaultPaneMapper()
             );
@@ -128,7 +128,7 @@ public class MainController implements Initializable {
                     providerName,
                     url,
                     "article",
-                    (page - 1) * 10, page * 10,
+                    page,
                     getDefaultHtmlArticleLinkMapper(providerName),
                     getDefaultPaneMapper()
             );
@@ -142,7 +142,7 @@ public class MainController implements Initializable {
     private List<Pane> renderArticleLinks(String providerName,
                                           String url,
                                           String selector,
-                                          int fromIndex, int toIndex,
+                                          int page,
                                           Function<? super Element, ArticleLink> articleLinkMapper,
                                           Function<ArticleLink, Pane> paneMapper) {
 
@@ -152,8 +152,8 @@ public class MainController implements Initializable {
 
         return result.select(selector)
                 .stream()
-                .skip(fromIndex)
-                .limit(toIndex)
+                .skip((page - 1) * 10)
+                .limit(10)
                 .map(articleLinkMapper)
                 .map(paneMapper)
                 .filter(pane -> pane != null)
@@ -185,6 +185,7 @@ public class MainController implements Initializable {
     }
 
     public void onPageSwitched(Event e, int index) {
+        this.chem.getItems().clear();
         this.onCategorySelection(new Event(EventType.ROOT));
     }
 
