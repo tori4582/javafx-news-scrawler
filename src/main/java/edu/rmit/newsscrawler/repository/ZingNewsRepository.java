@@ -16,6 +16,22 @@ public class ZingNewsRepository implements Repository {
     }
 
     @Override
+    public String[] getProviderCategories() {
+        return new String[] {
+                "Newest (Mới nhất)", "https://zingnews.vn/",
+                "Covid (Covid)","https://zingnews.vn/hau-covid-19.html",
+                "Politics (Chính trị)", "https://zingnews.vn/thoi-su.html",
+                "Business (Kinh doanh)", "https://zingnews.vn/kinh-doanh-tai-chinh.html",
+                "Technology (Công nghệ)", "https://zingnews.vn/cong-nghe.html",
+                "Health (Sức khoẻ)", "https://zingnews.vn/suc-khoe.html",
+                "Sports (Thể thao)", "https://zingnews.vn/the-thao.html",
+                "Entertainment (Giải trí)", "https://zingnews.vn/giai-tri.html",
+                "World (Thế giới)", "https://zingnews.vn/the-gioi.html",
+                "Others (Chuyên mục khác)","https://zingnews.vn/xuat-ban.html"
+        };
+    }
+
+    @Override
     public String[] getCategoryNames() {
         return zingProvider.getCategories().keySet().toArray(new String[0]);
     }
@@ -28,23 +44,5 @@ public class ZingNewsRepository implements Repository {
     @Override
     public NewsProvider get() {
         return this.zingProvider;
-    }
-
-    @Override
-    public String[] getProviderCategories() {
-        return new String[] {
-                "Trang chủ", "https://zingnews.vn/",
-                "Xuất bản", "https://zingnews.vn/xuat-ban.html",
-                "Thời sự", "https://zingnews.vn/thoi-su.html",
-                "Thế giới", "https://zingnews.vn/the-gioi.html",
-                "Kinh doanh", "https://zingnews.vn/kinh-doanh-tai-chinh.html",
-                "Công nghệ", "https://zingnews.vn/cong-nghe.html",
-                "Sức khỏe", "https://zingnews.vn/suc-khoe.html",
-                "Thể thao", "https://zingnews.vn/the-thao.html",
-                "Giải trí", "https://zingnews.vn/giai-tri.html",
-                "Đời sống", "https://zingnews.vn/doi-song.html",
-                "Du lịch", "https://zingnews.vn/du-lich.html",
-                "Lifestyle", "https://zingnews.vn/lifestyle.html"
-        };
     }
 }

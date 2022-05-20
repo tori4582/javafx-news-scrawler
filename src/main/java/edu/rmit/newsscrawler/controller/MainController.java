@@ -83,6 +83,8 @@ public class MainController implements Initializable {
 
         ((ToggleButton) this.paginationPane.getChildren().get(0)).setSelected(true);
 
+        this.comboCategory.getSelectionModel().select("Newest (Mới nhất)");
+
         doneProgress();
     }
 
@@ -216,7 +218,7 @@ public class MainController implements Initializable {
 
         this.comboProvider.getSelectionModel().select("VNEXPRESS");
         this.onProviderSelection(new Event(EventType.ROOT));
-        this.comboCategory.getSelectionModel().select("Trang chủ");
+        this.comboCategory.getSelectionModel().select("Newest (Mới nhất)");
         this.onCategorySelection(new Event(EventType.ROOT));
 
     }

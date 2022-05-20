@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class Category {
-
     private String title;
     private List<String> subCategories;
 

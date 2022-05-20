@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class Article {
-
     private String title;
     private List<String> categories;
     private String htmlContent;

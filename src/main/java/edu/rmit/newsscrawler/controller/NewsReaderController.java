@@ -31,15 +31,11 @@ public class NewsReaderController {
     private Label title;
 
     public void load(ArticleLink articleLink, Article article) {
-
         url.setText(articleLink.getUrl());
         title.setText(article.getTitle());
         htmlContent.getEngine().loadContent(article.getHtmlContent());
         author.setText(article.getAuthor());
         category.setText(article.getCategoriesString());
         publishedDateTime.setText(article.getPublishedAt());
-
     }
-
-
 }

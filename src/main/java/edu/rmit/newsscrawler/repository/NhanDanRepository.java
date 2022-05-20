@@ -18,21 +18,15 @@ public class NhanDanRepository implements Repository {
     @Override
     public String[] getProviderCategories() {
         return new String[] {
-                "Trang chủ", "https://nhandan.vn/",
-                "Chính trị", "https://nhandan.vn/chinhtri",
-                "Kinh tế", "https://nhandan.vn/kinhte",
-                "Văn hóa", "https://nhandan.vn/vanhoa",
-                "Xã hội", "https://nhandan.vn/xahoi",
-                "Pháp luật", "https://nhandan.vn/phapluat",
-                "Du lịch", "https://nhandan.vn/du-lich",
-                "Thế giới", "https://nhandan.vn/thegioi",
-                "Thể thao", "https://nhandan.vn/thethao",
-                "Giáo dục", "https://nhandan.vn/giaoduc",
-                "Y tế", "https://nhandan.vn/y-te",
-                "Khoa học - Công nghệ", "https://nhandan.vn/khoahoc-congnghe",
-                "Môi trường", "https://nhandan.vn/moi-truong",
-                "Bạn đọc", "https://nhandan.vn/bandoc",
-                "RADIO", "https://radio.nhandan.vn/",
+                "Newest (Mới nhất)", "https://nhandan.vn/",
+                "Politics (Chính trị)", "https://nhandan.vn/chinhtri",
+                "Business (Kinh doanh)", "https://nhandan.vn/kinhte",
+                "Technology (Công nghệ)", "https://nhandan.vn/khoahoc-congnghe",
+                "Health (Sức khoẻ)", "https://nhandan.vn/y-te",
+                "Sports (Thể thao)", "https://nhandan.vn/thethao",
+                "Entertainment (Giải trí)", "https://nhandan.vn/du-lich",
+                "World (Thế giới)", "https://nhandan.vn/thegioi",
+                "Others (Chuyên mục khác)", "https://nhandan.vn/xahoi",
         };
     }
 

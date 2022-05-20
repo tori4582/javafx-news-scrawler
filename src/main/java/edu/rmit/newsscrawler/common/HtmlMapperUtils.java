@@ -6,10 +6,7 @@ import lombok.extern.java.Log;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Log
@@ -109,7 +106,7 @@ public class HtmlMapperUtils {
 
 
     public static final Map<String, String> categoriesStringArrayToMap(String[] categories) {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new LinkedHashMap<>();
 
         for (int i = 0; i < categories.length; i++) {
             if (i % 2 == 0) {
@@ -147,8 +144,6 @@ public class HtmlMapperUtils {
 
         return articleLink;
     }
-
-
 
     public static final Article parseNhanDanArticle(Element bodyElement) {
         return Article.builder()
