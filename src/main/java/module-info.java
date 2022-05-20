@@ -16,8 +16,8 @@ module edu.rmit.newsscrawler {
     requires java.desktop;
     requires java.se;
 
-    opens edu.rmit.newsscrawler to javafx.fxml;
-    exports edu.rmit.newsscrawler;
-    exports edu.rmit.newsscrawler.controller;
-    opens edu.rmit.newsscrawler.controller to javafx.fxml;
+    opens edu.rmit.fxnews to javafx.fxml;
+    exports edu.rmit.fxnews;
+    exports edu.rmit.fxnews.controller;
+    opens edu.rmit.fxnews.controller to javafx.fxml;
 }
