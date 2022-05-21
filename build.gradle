@@ -24,8 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'edu.rmit.fxnews'
-    mainClass = 'edu.rmit.fxnews.FXNews'
+    mainModule = 'com.fxnews'
+    mainClass = 'com.fxnews.FXNews'
 }
 
 javafx {

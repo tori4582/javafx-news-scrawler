@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="164.0" prefWidth="772.0" scaleShape="false" style="-fx-border-color: #000; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxnews.controller.ArticleLinkComponent">
+   <children>
+      <ImageView fx:id="thumbnail" fitHeight="164.0" fitWidth="199.0" pickOnBounds="true">
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <Hyperlink fx:id="articleHyperLink" alignment="TOP_LEFT" layoutX="217.0" layoutY="12.0" onAction="#onLinkClicked" prefHeight="54.0" prefWidth="538.0" text="Hyperlink">
+         <font>
+            <Font name="Segoe UI Semilight" size="24.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="description" alignment="TOP_LEFT" layoutX="225.0" layoutY="66.0" prefHeight="54.0" prefWidth="530.0" text="Label" wrapText="true" />
+      <Label fx:id="labelMetadata" alignment="BOTTOM_RIGHT" layoutX="558.0" layoutY="133.0" prefHeight="17.0" prefWidth="199.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="publishDateTime" layoutX="225.0" layoutY="133.0" text="Label" textFill="#949494">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

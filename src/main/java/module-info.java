@@ -1,4 +1,4 @@
-module edu.rmit.newsscrawler {
+module com.fxnews {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -16,8 +16,8 @@ module edu.rmit.newsscrawler {
     requires java.desktop;
     requires java.se;
 
-    opens edu.rmit.fxnews to javafx.fxml;
-    exports edu.rmit.fxnews;
-    exports edu.rmit.fxnews.controller;
-    opens edu.rmit.fxnews.controller to javafx.fxml;
+    opens com.fxnews to javafx.fxml;
+    exports com.fxnews;
+    exports com.fxnews.controller;
+    opens com.fxnews.controller to javafx.fxml;
 }
