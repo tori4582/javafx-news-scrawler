@@ -21,6 +21,4 @@ public class Article {
     public String getCategoriesString() {
         return String.join(" / ", categories);
     }
-    @Override
-    public String toString(){return "1";}
 }

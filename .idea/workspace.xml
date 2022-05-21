@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="change package name&#10;remove log message">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/FXNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/FXNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/CrawlerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/CrawlerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/DateTimeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/DateTimeUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/HtmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/HtmlMapperUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/NewsProviderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/NewsProviderUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/RssHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/RssHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/XmlMapperUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/XmlMapperUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/common/pagination/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/common/pagination/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/controller/ArticleLinkComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/controller/ArticleLinkComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/controller/NewsReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/controller/NewsReaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/models/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/models/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/models/ArticleLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/models/ArticleLink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/models/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/models/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/models/NewsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/models/NewsProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/NhanDanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/NhanDanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/ProviderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/ProviderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/ThanhNienRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/ThanhNienRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/TuoiTreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/TuoiTreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/VnExpressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/VnExpressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/rmit/fxnews/repository/ZingNewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fxnews/repository/ZingNewsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/fxnews/ArticleLinkComponent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fxnews/ArticleLinkComponent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/fxnews/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fxnews/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/rmit/fxnews/NewsReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fxnews/NewsReader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/rmit/fxnews/test/UtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/fxnews/test/UtilsTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="fa7d79ee-8220-4259-8389-95289103ecfe" name="Changes" comment="change package name&#10;remove log message" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +235,7 @@
       <workItem from="1653043504799" duration="215000" />
       <workItem from="1653053743482" duration="8120000" />
       <workItem from="1653140856763" duration="638000" />
-      <workItem from="1653141513272" duration="2901000" />
+      <workItem from="1653141513272" duration="2937000" />
     </task>
     <task id="LOCAL-00001" summary="change package name&#10;change file name">
       <created>1653022206557</created>
@@ -275,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653022206557</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change package name&#10;remove log message">
+      <created>1653144816551</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653144816551</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
