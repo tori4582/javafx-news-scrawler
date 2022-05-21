@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="809.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxnews.controller.NewsReaderController">
    <children>
-      <Label fx:id="title" alignment="TOP_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="94.0" prefWidth="581.0" text="A realy long text with really really long string" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0">
+      <Label fx:id="title" alignment="TOP_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="94.0" prefWidth="581.0" text="A title" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.0">
          <font>
             <Font name="Segoe UI Light" size="32.0" />
          </font>

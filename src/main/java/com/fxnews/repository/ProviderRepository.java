@@ -10,6 +10,7 @@ import java.util.Map;
 public class ProviderRepository {
 
     private static ProviderRepository INSTANCE;
+    private Map<String, Repository> providers;
 
     public static final ProviderRepository getInstance() {
         if (ProviderRepository.INSTANCE == null) {
@@ -18,8 +19,6 @@ public class ProviderRepository {
 
         return ProviderRepository.INSTANCE;
     }
-
-    private Map<String, Repository> providers;
 
     private ProviderRepository() {
         this.providers = Map.of(

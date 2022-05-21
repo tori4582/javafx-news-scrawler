@@ -16,12 +16,12 @@ public class XmlMapperUtils {
     private static final XmlMapperUtils mapper = new XmlMapperUtils();
 
     public static final Article parseArticle(Node itemNode) {
-        return Article.builder()
-                .title(removeCData(getChildNode(itemNode, "title").getTextContent()))
-                .url(removeCData(getChildNode(itemNode, "link").getTextContent()))
-//                .publishedAt(toLocalDate(removeCData(getChildNode(itemNode, "pubDate").getTextContent())))
-                .imageUrl(removeCData(getChildNode(itemNode, "image").getTextContent()))
-                .build();
+        Article article = new Article();
+        article.setTitle(removeCData(getChildNode(itemNode, "title").getTextContent()));
+        article.setUrl(removeCData(getChildNode(itemNode, "link").getTextContent()));
+        article.setImageUrl(removeCData(getChildNode(itemNode, "image").getTextContent()));
+
+        return article;
     }
 
     public static final Node getChildNode(Node parentNode, String childNodeName) {

@@ -60,9 +60,4 @@ public class RssHandler {
 
         return articleLink;
     }
-//
-//    private static final ArticleLink parseNhanDanArticleLink(Element element) {
-//
-//    }
-
 }

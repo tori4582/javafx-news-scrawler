@@ -144,105 +144,100 @@ public class HtmlMapperUtils {
     }
 
     public static final Article parseNhanDanArticle(Element bodyElement) {
-        return Article.builder()
-                .title(bodyElement.select("h1").text())
-                .publishedAt(bodyElement.select("div.box-date.pull-left").text())
-                .author(bodyElement.select("div.box-author").text())
-                .htmlContent(
-                        eliminateHyperlinks(
-                                forceLoadLazyData(
-                                        bodyElement.select("div.box-content-detail").first()
-                                )
-                        )
-                ).categories(
-                        bodyElement.select("li.bc-item>a")
-                                .stream()
-                                .map(e -> e.text())
-                                .collect(Collectors.toList())
+        Article article = new Article();
+        article.setTitle(bodyElement.select("h1").text());
+        article.setPublishedAt(bodyElement.select("div.box-date.pull-left").text());
+        article.setAuthor(bodyElement.select("div.box-author").text());
+        article.setHtmlContent(eliminateHyperlinks(
+                forceLoadLazyData(
+                        bodyElement.select("div.box-content-detail").first()
                 )
-                .build();
+        ));
+
+        article.setCategories(bodyElement.select("li.bc-item>a")
+                .stream()
+                .map(e -> e.text())
+                .collect(Collectors.toList()));
+        return article;
     }
 
     public static final Article parseTuoiTreArticle(Element bodyElement) {
-
-        return Article.builder()
-                .title(bodyElement.select("h1").text())
-                .publishedAt(bodyElement.select("div.date-time").text())
-                .author(bodyElement.select("div.author").text())
-                .htmlContent(
-                        eliminateHyperlinks(
-                                forceLoadLazyData(
-                                        bodyElement.select("div.content.fck").first()
-                                )
+        Article article = new Article();
+        article.setTitle(bodyElement.select("h1").text());
+        article.setPublishedAt(bodyElement.select("div.date-time").text());
+        article.setAuthor(bodyElement.select("div.author").text());
+        article.setHtmlContent(eliminateHyperlinks(
+                eliminateHyperlinks(
+                        forceLoadLazyData(
+                                bodyElement.select("div.content.fck").first()
                         )
-                ).categories(
-                        List.of(bodyElement.select("ul>li.fl>a").first().text())
                 )
-                .build();
+        ));
+        article.setCategories(List.of(bodyElement.select("ul>li.fl>a").first().text()));
 
+        return article;
     }
 
     public static final Article parseZingArticle(Element bodyElement) {
-        return Article.builder()
-                .title(bodyElement.select("h1").text())
-                .publishedAt(
-                        bodyElement.select("li.the-article-publish").text()
-                                + " (" + bodyElement.select("li.the-article-friendly-time").text() + ")"
-                ).author(bodyElement.select("li.the-article-author").text())
-                .htmlContent(
-                        eliminateHyperlinks(
-                                forceLoadLazyData(
-                                        bodyElement.select("div.the-article-body").first()
-                                )
+        Article article = new Article();
+        article.setTitle(bodyElement.select("h1").text());
+        article.setPublishedAt(bodyElement.select("li.the-article-publish").text()
+                + " (" + bodyElement.select("li.the-article-friendly-time").text() + ")");
+        article.setAuthor(bodyElement.select("li.the-article-author").text());
+        article.setHtmlContent(eliminateHyperlinks(
+                eliminateHyperlinks(
+                        forceLoadLazyData(
+                                bodyElement.select("div.the-article-body").first()
                         )
-                ).categories(
-                        bodyElement.select("p.the-article-category a")
-                                .stream()
-                                .map(e -> e.text())
-                                .collect(Collectors.toList())
                 )
-                .build();
+        ));
+        article.setCategories(bodyElement.select("p.the-article-category a")
+                .stream()
+                .map(e -> e.text())
+                .collect(Collectors.toList()));
+
+        return article;
     }
 
     public static final Article parseThanhNienArticle(Element bodyElement) {
-        return Article.builder()
-                .title(bodyElement.select("h1").text())
-                .publishedAt(bodyElement.select("div.meta time").text())
-                .author(bodyElement.select("h4>a.cms-author").text())
-                .htmlContent(
-                        eliminateHyperlinks(
-                                forceLoadLazyData(
-                                        bodyElement.select("div#abody").first()
-                                )
+        Article article = new Article();
+        article.setTitle(bodyElement.select("h1").text());
+        article.setPublishedAt(bodyElement.select("div.meta time").text());
+        article.setAuthor(bodyElement.select("h4>a.cms-author").text());
+        article.setHtmlContent(eliminateHyperlinks(
+                eliminateHyperlinks(
+                        forceLoadLazyData(
+                                bodyElement.select("div#abody").first()
                         )
-                ).categories(
-                        bodyElement.select("div.breadcrumb>a")
-                                .stream()
-                                .map(e -> e.text())
-                                .collect(Collectors.toList())
                 )
-                .build();
+        ));
+        article.setCategories(bodyElement.select("div.breadcrumb>a")
+                .stream()
+                .map(e -> e.text())
+                .collect(Collectors.toList()));
+
+        return article;
     }
 
     public static final Article parseVnExpressArticle(Element bodyElement) {
-
-        return Article.builder()
-                .title(bodyElement.select("h1").text())
-                .publishedAt(bodyElement.select("span.date").text())
-                .author(bodyElement.select("p.normal strong").text())
-                .htmlContent(
-                        eliminateHyperlinks(
-                                forceLoadLazyData(
-                                        bodyElement.select("article.fck_detail").first()
-                                )
+        Article article = new Article();
+        article.setTitle(bodyElement.select("h1").text());
+        article.setPublishedAt(bodyElement.select("span.date").text());
+        article.setAuthor(bodyElement.select("p.normal strong").text());
+        article.setHtmlContent(eliminateHyperlinks(
+                eliminateHyperlinks(
+                        forceLoadLazyData(
+                                bodyElement.select("article.fck_detail").first()
                         )
-                ).categories(
-                        bodyElement.select("ul.breadcrumb li a")
-                                .stream()
-                                .map(e -> e.text())
-                                .collect(Collectors.toList())
                 )
-                .build();
+        ));
+
+        article.setCategories(
+                bodyElement.select("ul.breadcrumb li a")
+                        .stream()
+                        .map(e -> e.text())
+                        .collect(Collectors.toList()));
+        return article;
     }
 
     public static final String eliminateHyperlinks(String html) {

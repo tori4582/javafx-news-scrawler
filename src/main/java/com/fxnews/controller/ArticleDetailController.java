@@ -4,6 +4,7 @@ import com.fxnews.repository.ProviderRepository;
 import com.fxnews.FXNews;
 import com.fxnews.models.Article;
 import com.fxnews.models.ArticleLink;
+import com.fxnews.repository.Repository;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +26,7 @@ import static com.fxnews.common.NewsProviderUtils.parseArticle;
 
 @Data
 @Log
-public class ArticleLinkComponent {
+public class ArticleDetailController {
 
     private ArticleLink articleLink;
 
@@ -73,8 +74,8 @@ public class ArticleLinkComponent {
         Stage stage = new Stage();
 
         if (!articleLink.getUrl().startsWith("http")) {
-            var provider = ProviderRepository.getInstance().getProvider(articleLink.getProvider());
-            var seperator = (provider.get().getUrl().endsWith("/")) ? "" : "/" ;
+            Repository provider = ProviderRepository.getInstance().getProvider(articleLink.getProvider());
+            String seperator = (provider.get().getUrl().endsWith("/")) ? "" : "/" ;
 
             articleLink.setUrl(provider.get().getUrl() + seperator + articleLink.getUrl());
         }

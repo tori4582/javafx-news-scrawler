@@ -173,7 +173,7 @@ public class MainController implements Initializable {
 
                 try {
                     Pane p = new Pane((Pane) loader.load());
-                    ArticleLinkComponent c = loader.getController();
+                    ArticleDetailController c = loader.getController();
                     c.setArticleLink(articleLink);
 
                     return p;
